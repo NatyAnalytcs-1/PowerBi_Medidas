@@ -43,14 +43,15 @@ IF(
 )
 
 ```
+### SWITCH 
 ```
 Carga horário de trabalho = 
 SWITCH(
     TRUE(),
-    'Fabsenteismo'[Qtd. Horas] >= 4.17083333333333 && 'Fabsenteismo'[Qtd. Horas] < 5, "Jornada mensal acima 100 hs",
+    'Fabsenteismo'[Qtd. Horas] >= 4.1&& 'Fabsenteismo'[Qtd. Horas] < 5, "Jornada mensal acima 100 hs",
     'Fabsenteismo'[Qtd. Horas] >= 5 && 'Fabsenteismo'[Qtd. Horas] < 5.5, "Jornada mensal acima 120 hs",
     'Fabsenteismo'[Qtd. Horas] >= 5.5 && 'Fabsenteismo'[Qtd. Horas] < 6.966, "Jornada mensal acima 130 hs",
-    'Fabsenteismo'[Qtd. Horas] >= 6.966, "Jornada mensal acima de 150 hs",
+    'Fabsenteismo'[Qtd. Horas] >= 6.1, "Jornada mensal acima de 150 hs",
     "100% Ausente"
 )
 
@@ -60,4 +61,13 @@ SWITCH(
 AVERAGEX(
     VALUES(Tabela[Colaborador]),
     [% Absenteísmo]
-)```
+)
+```
+
+### Filtro com calculate
+````
+Filtro
+TotalAlgo = CALCULATE(
+                    [medida],
+                    tabela[coluna] = "texto")
+````
