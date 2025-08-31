@@ -323,7 +323,7 @@ CALCULATE(
 TopN Dinamico =
 IF([Ranking Produto] <= SELECTEDVALUE(Parametros[TopN]), [Total Vendas])
 ```
-🔹 **Tirar acento com função**
+🔹 **Tirar acento com função de PARAMETRO**
 ```
 1 - Clicar com botão direito ( consulta nula)
 2 - Clicar no (Editor avançado)
