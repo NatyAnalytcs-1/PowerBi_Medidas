@@ -322,4 +322,30 @@ CALCULATE(
 ```
 TopN Dinamico =
 IF([Ranking Produto] <= SELECTEDVALUE(Parametros[TopN]), [Total Vendas])
+```
+🔹 **Tirar acento com função**
+```
+1 - Clicar com botão direito ( consulta nula)
+2 - Clicar no (Editor avançado)
+3 - Colar o codigo abaixo
+4 - Renomeie a consulta
+5 - Retone na sua tabela
+6 - Adicionar coluna
+7 - Invocar função personalizada
+8 - Insira o nome da nova coluna
+9 - Consulta de função ( insira a função criada)
+10- Escolha a coluna de referencia
 
+
+
+(texto as text) =>
+let
+    ComAcento = Text.ToList("ŠŽšžŸÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðñòóôõöùúûüýÿ"),
+    SemAcento = Text.ToList("SZszYAAAAAACEEEEIIIIDNOOOOOUUUUYaaaaaaceeeeiiiidnooooouuuuyy") ,
+    Palavras = List.Zip({ComAcento,SemAcento}),
+    TextoAjustado = Text.ToList(texto),
+    Subistituicao = List.ReplaceMatchingItems(TextoAjustado,Palavras),
+    Resultado = Text.Combine(Subistituicao)
+in
+    Resultado
+```
