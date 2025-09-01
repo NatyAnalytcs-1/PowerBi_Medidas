@@ -349,3 +349,25 @@ let
 in
     Resultado
 ```
+
+🔹 ** Alterando coluna de data (linguagem M)**
+```
+Adicionar Coluna > Coluna Personalizada.
+
+fórmula:
+
+= Date.AddYears([Data Venda], 9)
+
+
+Isso adiciona 9 anos à data original.
+
+Exemplo: 2012 → 2021, 2013 → 2022, etc.
+
+```
+
+🔹 ** Alterando coluna de data (DAX)
+```
+Criar a coluna direto no modelo, Nova coluna
+
+NovaData = DATE(YEAR('Tabela'[Data Venda]) + 9, MONTH('Tabela'[Data Venda]), DAY('Tabela'[Data Venda]))
+```
