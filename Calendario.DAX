@@ -1,0 +1,13 @@
+Calendario = 
+VAR DataInicio = DATE(2005,01,01)  
+VAR DataFim = DATE(YEAR(TODAY()) + RANDBETWEEN(1,5), 12, 31)
+RETURN
+    ADDCOLUMNS(
+        CALENDAR(DataInicio, DataFim),
+        "Ano", YEAR([Date]),
+        "Mês", MONTH([Date]),
+        "Dia", DAY([Date]),
+       "Dia útil", 
+            IF(WEEKDAY([Date], 2) <= 5, 1, 0),  -- Verifica se o dia é útil (segunda a sexta)
+        "NomeMês", UPPER(LEFT(FORMAT([Date], "MMMM"), 1)) & LOWER(MID(FORMAT([Date], "MMMM"), 2, LEN(FORMAT([Date], "MMMM"))))
+    )
