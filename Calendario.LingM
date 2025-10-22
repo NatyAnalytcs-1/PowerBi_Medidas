@@ -4,7 +4,7 @@ let
     DataInicio = #date(2025, 1, 1),
 
     // Pega a data de hoje
-    DataHoje = DateTime.Date(DateTime.LocalNow()),
+    DataHoje = DateTime.Date(DateTime.LocalNow()),  // ou DataFim = Date.AddMonths(DateTime.Date(DateTime.LocalNow()), 3),
 
     // Calcula a quantidade de dias entre DataInicio e DataHoje
     NumeroDias = Duration.Days(DataHoje - DataInicio) + 1,
